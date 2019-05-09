@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Enter Student Data</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+</head>
+<body style="background-color :whitesmoke">
+    <div class="ui container">
+            <form action="/data" method="POST" class="ui form">
+            <div class="ui field">
+            <h1 class="ui huge header">Name</h1>
+            <input type="text" name="firstname" placeholder="Firstname" class="three wide field">
+            <input type="text" name="lastname" placeholder="Lastname" class="three wide field" >                
+            </div>
+            <div class="ui field">
+                    <h1 class="ui huge header">Father Name</h1>
+                    <input type="text" name="firstnamef" placeholder="Firstname" class="three wide field">
+                    <input type="text" name="lastnamef" placeholder="Lastname" class="three wide field" >                
+                    </div>
+                    <div class="ui field">
+                        <h1 class="ui huge header">Age</h1>
+                        <input type="number" name="age" placeholder="Age" class="three wide field">
+                    </div>
+                    <div class="ui field">
+                        <h1 class="ui huge header">Class</h1>
+                        <input type="number" name="courseNo" placeholder="Course Number" class="three wide field">
+                        <input type="text" name="section" placeholder="Section" class="two wide field">
+                    </div>
+                    <div >
+                        <button type="submit" class="ui positive button three wide field" tabindex="1">Submit</button>
+                    </div>
+            </form>
+    </div>
+
+</body>
+</html>

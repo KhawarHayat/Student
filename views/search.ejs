@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <title>Search Student Name</title>
+    <script>
+    function Search(){
+        var a = document.getElementById("search").value;
+        axios.post('/search',{
+            value : a
+        }).then((res) => {
+            console.log(res.data)
+            if(res.data.length == 0){
+                alert("Not Found")
+            }
+            else{
+                document.getElementById("name").innerHTML=res.data[0].firstname + " " + res.data[0].lastname;
+            document.getElementById("fname").innerHTML=res.data[0].firstnamef + " " + res.data[0].lastnamef;
+            document.getElementById("age").innerHTML=res.data[0].age;
+            }    
+        })
+    }
+    // function sug(){
+    //     let a = document.getElementById("search").value
+    //     axios.post("/search",{
+    //         value : a
+    //     }).then((res)=>{
+    //         if(res.data.length == 0){
+    //             alert("Not Found")
+    //         }
+    //         else{
+    //         document.getElementById("name").innerHTML=res.data[0].firstname + " " + res.data[0].lastname;
+    //         document.getElementById("fname").innerHTML=res.data[0].firstnamef + " " + res.data[0].lastnamef;
+    //         document.getElementById("age").innerHTML=res.data[0].age;
+    //         }  
+    //     })
+    // }
+    </script>
+</head>
+<body >
+    <div class="ui container">
+            <div class="ui right aligned grid" style="background-color:green; width:110%; height: 100px;">
+                        <div class="ui search" style="padding :3%">
+                                <div class="ui icon input">
+                                  <input class="prompt" type="text" name="search" id="search" placeholder="Name of Student">
+                                 <button class="ui right labeled icon button" onclick="Search()">Search <i class="right search icon"></i> </button> 
+                                </div>
+                              </div>
+                      </div>
+                      <table class="ui celled table">
+                     <thead>
+                         <tr>
+                             <th>Name</th>
+                             <th>Father-Name</th>
+                             <th>Age</th>
+                         </tr>
+                     </thead>
+                     <tbody>
+                         <tr>
+                             <td data-label="Name" id="name"></td>
+                             <td data-label="Father-Name" id="fname"></td>
+                             <td data-label="Age" id="age"></td>
+                         </tr>
+                     </tbody>
+                      </table>
+                
+    </div>
+        
+</body>
+</html>
